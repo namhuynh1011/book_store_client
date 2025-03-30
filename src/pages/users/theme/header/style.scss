@@ -78,7 +78,7 @@ $bannerImg: "/assets/users/image/hero/banner.jpg";
 }
 
 .header_logo img {
-    width: 160px;  // Điều chỉnh kích thước phù hợp
+    width: 250px;  // Điều chỉnh kích thước phù hợp
     height: auto;
     object-fit: contain;
 }
@@ -392,6 +392,10 @@ $bannerImg: "/assets/users/image/hero/banner.jpg";
     }
     .header_logo {
         width: max-content;
+        height: 130px;
+    }
+    .header_logo img {
+        width: 300px ;
     }
     .hero_search_form {
         width: 565px !important;

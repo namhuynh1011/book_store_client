@@ -78,7 +78,7 @@ const Header = () => {
 
             <div className={`humberger_menu_wrapper${isShowHumberger ? " show" : ""}`}>
                 <div className="header_logo">
-                    <h1>Book Store</h1>
+                    <img src={logo}/>
                 </div>
                 <div className="humberger_menu_cart">
                     <ul>
