@@ -13,6 +13,8 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import ProductCard from "component/ProductCard";
 import { featProducts } from "utils/common";
+import { useGetCategoriesUS } from "api/homePage";
+
 
 const HomePage = () => {
     const responsive = {
@@ -59,6 +61,9 @@ const HomePage = () => {
 
     ];
 
+    const {data: categories} = useGetCategoriesUS();
+
+    console.log("categories",categories);
 
     const renderFeaturedProducts = (data) => {
         const tabList = [];
