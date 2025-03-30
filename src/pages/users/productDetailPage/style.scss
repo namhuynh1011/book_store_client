@@ -1,0 +1,126 @@
+@use "sass:map";
+@import "style/pages/theme";
+@import "style/pages/all";
+.product_detail_pic {
+    display: flex;
+    column-gap: 10px;
+
+    img {
+        flex: 0 0 60%;
+        object-fit: cover;
+        width: 50%;
+    }
+
+    .main {
+        flex: 0 0 30%;
+        display: grid;
+        align-items: stretch;
+
+        img {
+            width: 60%;
+            object-fit: cover;
+
+            &:not(:first-child) {
+                padding-top: 5px;
+
+            }
+        }
+    }
+}
+
+.product_detail_text {
+    h2 {
+        color: #252525;
+        font-weight: 700;
+
+    }
+    .seen_icon {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        line-height: 30px;
+        column-gap: 5px;
+    }
+    h3 {}
+
+    p {
+        margin: 10px 0 ;
+        line-height: 25px;
+
+    }
+
+    ul {
+        margin: 20px 0;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        li {
+            list-style: none;
+            display: flex;
+            column-gap: 20px;
+            line-height: 35px;
+
+            b {
+                width: 150px;
+            }
+
+            span {
+                display: flex;
+                column-gap: 10px;
+                align-items: center;
+
+
+                svg {
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.product_detail_tab {
+    margin: 20px 20px;
+
+    h4 {
+        text-align: center;
+        position: relative;
+        margin-bottom: 20px;
+
+        &::after {
+            position: absolute;
+            right: 0;
+            top: 12px;
+            height: 1px;
+            width: 43%;
+            background: white;
+            content: "";
+
+        }
+
+        &::before {
+            position: absolute;
+            right: 0;
+            top: 12px;
+            height: 1px;
+            width: 43%;
+            background: white;
+            content: "";
+        }
+
+        &::before,&::after {
+            @include Responsive($MEDIUM_DEVICE) {
+                width: 42%;
+            }
+            @include Responsive($TABLET_DEVICE) {
+                width: 38%;
+            }
+            @include Responsive($WIDE_MOBILE) {
+                width: 34%;
+            }
+            @include Responsive($SMALL_MOBILE) {
+                width: 29%;
+            }
+        }
+
+    }
+}

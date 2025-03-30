@@ -1,0 +1,88 @@
+@use "sass:map";
+@import "style/pages/all";
+@import "style/pages/theme";
+.featured_item {
+    margin-bottom: 50px;
+
+    &:hover {
+        .featured_item_pic_hover{
+            top: 80% !important;
+
+        }
+    }
+
+    .featured_item_pic {
+        position: relative;
+        width: 100%;
+        height: 270px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f5f5f5;
+
+        img.featured_image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .featured_item_pic_hover {
+            position: absolute;
+            left: 0;
+            top: 120%;
+            width: 100%;
+            text-align: center;
+            transition: all 0.5s;
+
+
+            li {
+                list-style: none;
+                display: inline-block;
+                margin-right: 10px;
+                
+
+                &:hover {
+                    svg {
+                        background: #CC9966;
+                        border-color: #CC9966;
+                        color: white;
+                        transform: rotate(360deg) !important;
+                    }
+                }
+
+                svg {
+                    padding: 10px;
+                    height: 20px;
+                    width: 20px;
+                    border: 1px solid #ebebeb;
+                    background: white;
+                    color: #565555;
+                    transition: all 0.3s;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .featured_item_text {
+        text-align: center;
+        h6 {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 400;
+
+            a{
+                color: map.get($theme-color, "normal-text");
+                text-decoration: none;
+            }
+        }
+
+        h5 {
+            color: map.get($theme-color, "normal-text");
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+    }
+}
