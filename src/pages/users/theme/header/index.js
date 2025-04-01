@@ -5,8 +5,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { formatter } from "utils/fomater";
 import { ROUTERS } from "utils/router";
 import logo from "assets/users/image/hero/BookStore.jpg";
+import { useGetCategoriesUS } from "api/homePage";
 
-export const categories = [
+export const categoriesHardCode = [
     "Truyện Tranh",
     "Tiểu Thuyết",
     "Tâm Lý",
@@ -63,7 +64,7 @@ const Header = () => {
         }
     ]);
 
-    
+    const {data: categories} = useGetCategoriesUS();
 
     useEffect(() => {
         const isHome = location.pathname.length <= 1;
@@ -266,9 +267,9 @@ const Header = () => {
                         </div>
                         <ul className={isShowCatergories ? "" : "hidden"}>
                             {
-                                categories.map((category, key) => (
-                                    <li key={key}>
-                                        <Link to={ROUTERS.USER.PRODUCTS}>{category}</Link>
+                                categories?.map((category) => (
+                                    <li key={category.id}>
+                                        <Link to={ROUTERS.USER.PRODUCTS}>{category.name}</Link>
                                     </li>
                                 ))}
                         </ul>

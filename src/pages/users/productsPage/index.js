@@ -2,7 +2,7 @@ import { memo } from "react"
 import Breadcrumb from "../theme/breadcrumb";
 import "./style.scss";
 import { Link } from "react-router-dom";
-import { categories } from "../theme/header";
+import { categoriesHardCode } from "../theme/header";
 import { ROUTERS } from "utils/router";
 import img1Feat from "assets/users/image/featured/Sakamoto.jpg";
 import img2Feat from "assets/users/image/featured/nhagiakim.jpg";
@@ -102,7 +102,7 @@ const ProductsPage = () => {
                         <div className="sidebar_item">
                             <h2>Thể Loại Khác</h2>
                             <ul>
-                                {categories.map((name, key) => (
+                                {categoriesHardCode.map((name, key) => (
                                     <li key={key}>
                                         <Link to={ROUTERS.USER.PRODUCTS}>{name}</Link>
                                     </li>

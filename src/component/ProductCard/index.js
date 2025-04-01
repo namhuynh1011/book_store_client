@@ -4,31 +4,41 @@ import { AiOutlineEye, AiOutlineShoppingCart } from "react-icons/ai";
 import { formatter } from "utils/fomater";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTERS } from "utils/router";
+import useShoppingCart from "hooks/useShoppingCart";
 
-const ProductCard = ({ img, name, price }) => {
-    return (
-
-        <div className="featured_item pl-pr-10">
-            <div className="featured_item_pic" >
-                <img src={img} className="featured_image" />
-                <ul className="featured_item_pic_hover">
-                    <li>
-                        <AiOutlineEye />
-                    </li>
-                    <li>
-                        <AiOutlineShoppingCart />
-                    </li>
-                </ul>
-            </div>
-            <div className="featured_item_text">
-                <h6>
-                    <Link to={generatePath(ROUTERS.USER.PRODUCT, { id: 1 })}>{name}</Link>
-                </h6>
-                <h5>{formatter(price)}</h5>
-            </div>
-        </div>
-
-    );
+const ProductCard = ({ product }) => {
+    const { addToCart } = useShoppingCart();
+  return (
+    <div className="featured__item pl-pr-10">
+      <div
+        className="featured__item__pic set-bg"
+        style={{
+          backgroundImage: `url(${generatePath(`${product.img}`)})`,
+        }}
+      >
+        <ul className="featured__item__pic__hover">
+          <li>
+            <AiOutlineEye />
+          </li>
+          <li
+            onClick={() => {
+              addToCart(product, 1);
+            }}
+          >
+            <AiOutlineShoppingCart />
+          </li>
+        </ul>
+      </div>
+      <div className="featured__item__text">
+        <h6>
+          <Link to={generatePath(ROUTERS.USER.PRODUCT, { id: product.id })}>
+            {product.name}
+          </Link>
+        </h6>
+        <h5>{formatter(product.price)}</h5>
+      </div>
+    </div>  
+  );
 };
 
-export default memo(ProductCard)
+export default memo(ProductCard);
