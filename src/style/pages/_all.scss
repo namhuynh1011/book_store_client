@@ -1,15 +1,16 @@
 @use "sass:map";
-@import "theme";
-@import "responsive";
+@import "style/pages/reponsive";
+@import "style/pages/theme";
+// @import "@fontsource/roboto";
 @import "@fontsource/be-vietnam-pro";
+
 html,
 body {
     margin: 0;
 }
 
-
 * {
-    font-family: 'Be Vietnam Pro';
+    font-family: "Be Vietnam Pro";
     padding: 0;
     margin: 0;
 }
@@ -17,77 +18,100 @@ body {
 .container {
     max-width: 1170px;
     width: 100%;
-    padding-left: 15px;
     padding-right: 15px;
-    margin: auto;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.section_title {
-   margin-bottom: 50px;
-   text-align: center;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
 
-   h2 {
+.col-lg-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.col-lg-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.offset-lg-1 {
+    margin-left: 8.333333%;
+}
+
+.set-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+.pl-10 {
+    padding-left: 10px;
+}
+
+.pl-pr-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.spad {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.section-title {
+    margin-bottom: 50px;
+    text-align: center;
+
+    h2 {
         position: relative;
-   }
+    }
 
-   h2:after {
+    h2:after {
         position: absolute;
         left: 0;
         bottom: -15px;
         right: 0;
         height: 4px;
         width: 80px;
-        background: map.get($theme-color, "main");
+        background: map.get($theme-colors, "main");
         content: "";
         margin: 0 auto;
-        
-   }
+    }
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-
-}
-
-.col-6 {
-    flex: 0 0 50%;
-    max-width: 50%;   
-}
-.col-lg-3 {
-    flex: 0 0 25%;
-    max-width: 25%;   
-}
-.col-lg-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-}
-
-.col-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;   
-}
-.col-lg-9 {
-    flex: 0 0 75%;
-    max-width: 75%;   
-}
-
-.button_submit {
+.button-submit {
     font-size: 14px;
-    color: white;
+    color: #ffffff;
     font-weight: 800;
     text-transform: uppercase;
     display: inline-block;
     padding: 16px 30px 17px;
-    background: map.get($theme-color, "main");
+    background: map.get($theme-colors, "main");
     border: none;
     height: 100%;
     cursor: pointer;
-}
-
-.pl-pr-10  {
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 input, textarea {
@@ -106,71 +130,84 @@ input, textarea {
 
 textarea {
     padding-top: 10px;
-
 }
 
-@include Responsive($DESTOP) {
-    .col-xl-3 {
-        flex: 0 0 25%;
-        max-width: 25%;  
-    }
-    .col-xl-6 {
-        flex: 0 0 50%;
-        max-width: 50%;  
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+// .show {
+//     display: block !important;
+// }
+
+// .hidden {
+//     display: none !important;
+//     opacity: 0 !important;
+// }
+
+
+/* Desktop Device */
+@include Responsive($DESKTOP) {
+    .container {
+        max-width: 1170px;
     }
 }
+
+/* Medium Device */
 @include Responsive($MEDIUM_DEVICE) {
     .container {
-        max-width: 960px !important;
-    }
-    .col-lg-3 {
-        flex: 0 0 25%;
-        max-width: 25%;  
-    }
-    .col-xl-12 {
-        flex: 0 0 100%;
-        max-width: 100%;  
+        max-width: 960px;
     }
 }
 
+/* Tablet Device */
 @include Responsive($TABLET_DEVICE) {
     .container {
-        max-width: 720px !important;
+        max-width: 720px;
     }
-    .col-md-4 {
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%;  
-    }
-    .col-md-6 {
-        flex: 0 0 50%;
-        max-width: 50%;  
-    }
+
     .col-md-12 {
         flex: 0 0 100%;
-        max-width: 100%;  
+        max-width: 100%;
     }
 
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
 }
 
+/* Wide Mobile */
 @include Responsive($WIDE_MOBILE) {
     .container {
-        max-width: 540px !important;
+        max-width: 540px;
     }
+
     .col-sm-6 {
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .col-sm-12{
+
+    .col-sm-12 {
         flex: 0 0 100%;
         max-width: 100%;
     }
 }
 
-@include Responsive($SMALL_MOBILE) {
+/* Small Device */
+@include Responsive($SMALL_DEVICES) {
     .container {
         max-width: 350px !important;
     }
-    .col-xs-12{
+
+    .col-xs-12 {
         flex: 0 0 100%;
         max-width: 100%;
     }

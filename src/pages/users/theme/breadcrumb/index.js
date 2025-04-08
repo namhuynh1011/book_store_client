@@ -1,25 +1,25 @@
-import { memo } from "react"
+import { memo } from "react";
+import "react-multi-carousel/lib/styles.css";
 import "./style.scss";
-import { ROUTERS } from "utils/router";
 import { Link } from "react-router-dom";
+import { ROUTERS } from "utils/router";
 
-
-const BreadCrumb = (props) => {
-    return <div className="breadcrumb">
-        <div className="breadcrumb_text">
-            <h2>Book Store</h2>
-            <div className="breadcrumb_option">
-                <ul>
-                    <li className="link">
-                        <Link to={ROUTERS.USER.HOME}>Trang Chủ</Link>
-                    </li>
-                    <li>
-                        {props.name}
-                    </li>
-                </ul>
-            </div>
+const BreadcrumbUS = (props) => {
+  return (
+    <div className="breadcrumb">
+      <div className="breadcrumb__text">
+        <h2>Book Store</h2>
+        <div className="breadcrumb__option">
+          <ul>
+            <li className="link">
+              <Link to={ROUTERS.USER.HOME}>Trang chủ</Link>
+            </li>
+            <li>{props.name}</li>
+          </ul>
         </div>
-    </div>;
+      </div>
+    </div>
+  );
 };
 
-export default memo(BreadCrumb);
+export default memo(BreadcrumbUS);

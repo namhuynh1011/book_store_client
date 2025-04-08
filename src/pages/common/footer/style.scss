@@ -1,132 +1,145 @@
 @use "sass:map";
-@import "style/pages/theme";
+@import "style/pages/all";
 
 .footer {
-    background: white;
-    padding-top: 70px;
-    padding-bottom: 0;
+	background: #F3F6FA;
+	padding-top: 70px;
+	padding-bottom: 0;
 
-    .footer_about {
-        margin-bottom: 30px;
-        .footer_about_logo {
-            margin-bottom: 15px;
-            display: inline-block;
-            
-        }
+	.container .row {
+		margin-right: 15px;
+		margin-left: 15px;
+	}
+}
 
-        ul li {
-            font-size: 16px;
-            color: map.get($theme-color, "normal-text");
-            line-height: 36px;
-            list-style: none;
+.footer__about {
+	margin-bottom: 30px;
+}
+.footer__about img {
+	width: 59%;        // 👉 tăng kích thước logo ở đây (có thể chỉnh tùy ý như 250px, 300px...)
+  height: auto;        // giữ đúng tỷ lệ
+  margin-bottom: 15px;
+  display: block;
+  border-radius: 8px;
+  object-fit: contain;   // cắt cho gọn ảnh nếu cần
+  }
+  
 
-        } 
-        .footer_logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-            text-align: center; 
-            max-width: 300px; 
-        }
-        .footer_logo img {
-            width: 236px;
-            height: auto;
-            margin-bottom: -40px;
-            margin-top: -50px; 
-            margin-right: 55px;        
-        }
-    }  
-    
-    .footer_widget {
-        margin-bottom: 30px;
-        overflow: hidden;
+.footer__about ul {
+	margin-top: 10px;
+	li {
+	font-size: 16px;
+	color: map.get($theme-colors, "normal-text");
+	line-height: 36px;
+	list-style: none;
+}
+}
 
-        h6 {
-            color: map.get($theme-color, "normal-text");
-            margin-bottom: 10px;
-            font-size: 16px;
-            font-weight: 700;
+.footer__about__logo {
+	margin-bottom: 15px;
+	display: inline-block;
+}
 
-        }
-
-        ul {
-            float: left;
-            width: 50%;
-
-            li {
-                list-style: none;
-
-                a {
-                    color: map.get($theme-color, "normal-text");
-                    font-size: 14px;
-                    line-height: 32px;
-                    text-decoration: none;
-                }
-            }
-        }
-
-        p {
-            font-size: 14px;
-            color: map.get($theme-color, "normal-text");
-            margin-bottom: 30px;
-
-        }
-        form {
-            margin-bottom: 30px;
-
-            .input_group {
-                display: flex;
-                align-items: center;
+.footer__widget {
+	margin-bottom: 30px;
+	overflow: hidden;
+}
 
 
-                input {
-                    width: 100%;
-                    font-size: 16px;
-                    padding-left: 20px;
-                    color: map.get($theme-color, "normal-text");
-                    height: 46px;
-                    border: 1px solid #ededed;
-    
-                    ::placeholder {
-                        color: map.get($theme-color, "normal-text");
-                    }
-                }
-    
-                button {
-                    padding: 0 26px;
-                    height: 46px;
-                    min-width: max-content;
-                }
-            }
-        }
-    }
+.footer__widget {
+	margin-bottom: 30px;
+	overflow: hidden;
+}
 
+.footer__widget h6 {
+	color: map.get($theme-colors, "normal-text");
+	font-weight: 700;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
 
-    .footer_widget_social {
-        display: flex;
-        align-items: center;
-        column-gap: 10px;
-        margin-top: 10px;
-        
+.footer__widget ul {
+	width: 50%;
+	float: left;
+}
 
-        div {
-            :hover {
-                background: map.get($theme-color, "main");
-                color: white;
-                border-color: white;
-            }
+.footer__widget ul li {
+	list-style: none;
+}
 
-            svg {
-                font-size: 20px;
-                padding: 10px;
-                color: #404040;
-                border: 1px solid #ededed;
-                border-radius: 50%;
-                transition: all 0.3s;
-                background: white;
-                cursor: pointer;
-            }
-        }
-    }
+.footer__widget ul li a {
+	color: map.get($theme-colors, "normal-text");
+	font-size: 14px;
+	line-height: 32px;
+	text-decoration: none;
+}
 
+.footer__widget p {
+	font-size: 14px;
+	color: map.get($theme-colors, "normal-text");
+	margin-bottom: 30px;
+}
+
+.footer__widget form {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.footer__widget form input {
+	width: 100%;
+	font-size: 16px;
+	padding-left: 20px;
+	color: map.get($theme-colors, "normal-text");
+	height: 46px;
+	border: 1px solid #ededed;
+}
+
+.footer__widget form input::placeholder {
+	color: map.get($theme-colors, "normal-text");
+}
+
+.footer__widget form button {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 0 26px;
+	height: 100%;
+}
+
+.footer__widget h6 {
+	color: map.get($theme-colors, "normal-text");
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.footer__widget p {
+	color: map.get($theme-colors, "normal-text");
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+.footer__widget .footer__widget__social {
+	display: flex;
+	align-items: center;
+
+	div {
+		margin-right: 10px;
+
+		:hover {
+			background: map.get($theme-colors, "main");
+			color: #ffffff;
+			border-color: #ffffff;
+		}
+
+		svg {
+			font-size: 20px;
+			padding: 10px;
+			color: #404040;
+			border: 1px solid #ededed;
+			border-radius: 50%;
+			transition: all, 0.3s;
+			background: #ffffff;
+			cursor: pointer;
+		}
+	}
 }

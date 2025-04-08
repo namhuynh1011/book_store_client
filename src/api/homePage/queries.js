@@ -1,22 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
-import {getCategoriesAPI, getProductsAPI} from "./request"
-import {optionsUseQuery} from "utils/common";
-
+import { getCategoriesAPI, getProductsAPI } from "./request";
+import { optionUseQuery } from "utils/common";
 
 export const useGetCategoriesUS = (option) => {
   return useQuery({
     queryKey: ["GetCategoriesAPI"],
     queryFn: () => getCategoriesAPI(),
-    optionsUseQuery,
-    ...option
+    optionUseQuery,
+    ...option,
   });
 };
 
-export const useGetProductsUS = (option) => {
+export const useGetProductUS = (option) => {
   return useQuery({
-    queryKey: ["getProductsAPI"],
+    queryKey: ["GetProductsAPI"],
     queryFn: () => getProductsAPI(),
-    optionsUseQuery,
-    ...option
+    optionUseQuery,
+    ...option,
   });
 };

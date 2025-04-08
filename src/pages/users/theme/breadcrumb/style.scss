@@ -1,17 +1,17 @@
 @use "sass:map";
-@import "style/pages/theme";
+@import "style/pages/all";
 
 .breadcrumb {
     display: flex;
     align-items: center;
     padding: 45px 0px 40px;
+    text-align: center;
     justify-content: center;
     line-height: 30px;
-    background: map.get($theme-color, "main");
-    text-align: center;
+    background: map.get($theme-colors, "main");
 
-    .breadcrumb_text {
-        color: white;
+    .breadcrumb__text {
+        color: #ffffff;
 
         h2 {
             margin-bottom: 10px;
@@ -24,17 +24,18 @@
 
             li {
                 text-decoration: underline;
-                color: white;
-                cursor: pointer;
-                a{
+                color: map.get($theme-colors, "description");
+
+                a {
                     text-decoration: none;
-                    color: white;
+                    color: #ffffff;
                 }
 
                 &.link {
                     text-decoration: none;
+
                     :hover {
-                        color: map.get($theme-color, "normal-text");
+                        color: map.get($theme-colors, "description");
                     }
                 }
             }

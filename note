@@ -1,0 +1,19 @@
+Lib:
+
+icon
+https://react-icons.github.io/react-icons
+
+Compact import link
+https://code.visualstudio.com/docs/languages/jsconfig
+
+React-tabs
+https://www.npmjs.com/package/react-tabs
+
+Font
+https://www.npmjs.com/package/@fontsource/be-vietnam-pro
+
+Session
+https://www.npmjs.com/package/react-client-session
+https://github.com/grizzthedj/react-session
+
+yarn add js-cookie

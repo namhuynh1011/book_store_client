@@ -1,0 +1,64 @@
+@use "sass:map";
+@import "style/pages/all";
+
+.header {
+  background-color: white;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  &__nav {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    color: map.get($theme-colors, "normal-text");
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+      color: #2d3748;
+      background-color: #3182ce14;
+      color: map.get($theme-colors, "main");
+    }
+
+    &--active {
+      color: map.get($theme-colors, "main");
+      background-color: #3182ce14;
+    }
+  }
+
+  &__nav-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@include Responsive($TABLET_DEVICE) { 
+  .header {
+    &__nav {
+      height: auto;
+      padding: 8px 0;
+    }
+
+    &__nav-item {
+      padding: 8px 16px;
+      font-size: 14px;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+}

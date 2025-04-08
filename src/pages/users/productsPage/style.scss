@@ -38,7 +38,7 @@
                     margin-bottom: 0;
                     
                     &:hover, &:active {
-                        background: map.get($theme-color, "main");
+                        background: map.get($theme-colors, "main");
                         color: white;
                     }
                 }
@@ -49,10 +49,10 @@
                 a {
                     text-decoration: none;
                     line-height: 30px;
-                    color: map.get($theme-color, "normal-text"); 
+                    color: map.get($theme-colors, "normal-text"); 
 
                     &:hover {
-                        color: map.get($theme-color, "main");
+                        color: map.get($theme-colors, "main");
                     }
                 }
 

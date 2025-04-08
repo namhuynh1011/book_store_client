@@ -1,12 +1,12 @@
 @use "sass:map";
 @import "style/pages/all";
 
-.checkout_input {
+
+.checkout__input {
     margin-top: 20px;
 
-    input, textarea {
-        margin:10px 0;
-
+    input, textarea{
+        margin: 10px 0;
     }
 
     .required {
@@ -14,11 +14,11 @@
     }
 }
 
-.checkout_input_group {
+.checkout__input__group {
     display: flex;
     column-gap: 2%;
 
-    .checkout_input {
+    .checkout__input {
         flex: 0 0 50%;
 
         input {
@@ -27,20 +27,22 @@
     }
 }
 
-.checkout_order {
+.checkout__order {
     background: #f5f5f5;
     padding: 40px;
     padding-top: 30px;
     margin-left: 40px;
 
-    @include Responsive($TABLET_DEVICE) {
+    @include Responsive($TABLET_DEVICE) { 
         margin-left: 0px;
     }
-    @include Responsive($WIDE_MOBILE) {
-        margin-left: 0;
+
+    @include Responsive($WIDE_MOBILE) { 
+        margin-left: 0px;
     }
-    @include Responsive($SMALL_MOBILE) {
-        margin-left: 0;
+
+    @include Responsive($SMALL_DEVICES) { 
+        margin-left: 0px;
     }
 
     h3 {
@@ -55,18 +57,19 @@
             justify-content: space-between;
             line-height: 50px;
         }
-        .checkout_order_subtotal {
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 20px;
-
-            b {
-                color: #555555;
-            }
-        }
     }
-
+    
     button {
         width: 100%;
+    }
+
+    .checkout__order__subtotal {
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 20px;
+
+        b {
+            color: map.get($theme-colors, "description");
+        }
     }
 }

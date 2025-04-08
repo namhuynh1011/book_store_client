@@ -1,0 +1,15 @@
+@use "sass:map";
+@import "style/pages/all";
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@include Responsive($TABLET_DEVICE) { 
+  .admin {
+    margin-top: 16px;
+    padding: 16px;
+  }
+}

@@ -1,23 +1,24 @@
+import imgCat1 from "../../../assets/users/images/categories/truyen.jpg";
+import imgCat2 from "../../../assets/users/images/categories/giaokhoa.jpg";
+import imgCat3 from "../../../assets/users/images/categories/lichsu.jpg";
+import imgCat4 from "../../../assets/users/images/categories/tieusu.jpg";
+import imgCat5 from "../../../assets/users/images/categories/vanhoc.jpg";
+
+// import banner
+import img1Feat from "assets/users/images/featured/Sakamoto.jpg";
+import img2Feat from "assets/users/images/featured/ketromsach.jpg";
+
+import { useGetCategoriesUS, useGetProductUS } from "api/homePage";
+import { ProductCard } from "component";
 import { memo } from "react";
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import imgCat1 from "assets/users/image/categories/truyen.jpg";
-import imgCat2 from "assets/users/image/categories/giaokhoa.jpg";
-import imgCat3 from "assets/users/image/categories/lichsu.jpg";
-import imgCat4 from "assets/users/image/categories/tieusu.jpg";
-import imgCat5 from "assets/users/image/categories/vanhoc.jpg";
-import img1Feat from "assets/users/image/featured/Sakamoto.jpg";
-import img2Feat from "assets/users/image/featured/nhagiakim.jpg";
-import "./style.scss";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import "./style.scss";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import ProductCard from "component/ProductCard";
-import { useGetCategoriesUS, useGetProductsUS } from "api/homePage";
 
 const HomePage = () => {
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -35,35 +36,12 @@ const HomePage = () => {
     },
   };
 
-  const slideItems = [
-    {
-      bgImg: imgCat1,
-      name: "Truyện Tranh",
-    },
-    {
-      bgImg: imgCat2,
-      name: "Sách Giáo Khoa",
-    },
-    {
-      bgImg: imgCat3,
-      name: "Sách Lịch Sử",
-    },
-    {
-      bgImg: imgCat4,
-      name: "Sách Tiểu Sử",
-    },
-    {
-      bgImg: imgCat5,
-      name: "Sách Văn Học",
-    },
-  ];
-
   const { data: categories } = useGetCategoriesUS();
-  const { data: products } = useGetProductsUS();
-  console.log("products", products);
 
-  const renderFeaturedProducts = (data) => {
-    const tabList = [];
+  const { data: products } = useGetProductUS();
+
+  const renderFeaturedProducts = () => {
+    let tabList = [];
     const tabPanels = [];
 
     tabList.push(
@@ -71,9 +49,11 @@ const HomePage = () => {
         <Tab key={category.id}>{category.name}</Tab>
       ))
     );
+
     categories?.forEach((category) => {
       tabPanels.push(
-        products?.filter((product) => product.category_id === category.id)
+        products
+          ?.filter((product) => product.category_id === category.id)
           .map((product) => (
             <div
               className="col-lg-3 col-md-4 col-sm-6 col-xs-12"
@@ -98,12 +78,36 @@ const HomePage = () => {
       </Tabs>
     );
   };
+
+  const sliderItems = [
+    {
+      bgImg: imgCat1,
+      name: "Truyện Tranh",
+    },
+    {
+      bgImg: imgCat2,
+      name: "Sách Giáo Khoa",
+    },
+    {
+      bgImg: imgCat3,
+      name: "Sách Lịch Sử",
+    },
+    {
+      bgImg: imgCat4,
+      name: "Sách Tiểu Sử",
+    },
+    {
+      bgImg: imgCat5,
+      name: "Sách Văn Học",
+    },
+  ];
+
   return (
     <>
-      {/*categories begin*/}
+      {/* Categories Begin */}
       <div className="container container_categories_slider">
         <Carousel responsive={responsive} className="categories_slider">
-          {slideItems.map((item, key) => (
+          {sliderItems.map((item, key) => (
             <div className="categories_slider_item" key={key}>
               <img
                 src={item.bgImg}
@@ -166,7 +170,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/*Banner end*/}
+      {/* Banner End */}
     </>
   );
 };
