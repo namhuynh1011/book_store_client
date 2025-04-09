@@ -13,7 +13,10 @@ import MasterUsLayout from "./users/theme/masterUsLayout";
 import MasterAdLayout from "./admin/theme/masterAdLayout";
 import Cookies from "js-cookie";
 import AddProductPage from "./admin/addProductPage";
-
+import OrderDetail from "./admin/orderDetailPage";
+import AddCategoriesPage from "./admin/addCategoriesPage";
+import ListProductsPage from "./admin/listProductsPage";
+import EditProductPage from "./admin/editProductPage";
 const renderUserRouter = () => {
   const userRouters = [
     {
@@ -54,9 +57,17 @@ const renderAdminRouter = () => {
 
   const adminRouters = [
     {
-      path: ROUTERS.ADMIN.ORDERS,
+      path: ROUTERS.ADMIN.LISTPRODUCTS,
       component: isLoggedIn ? (
-        <OrdersAdPage />
+        <ListProductsPage />
+      ) : (
+        <Navigate to={ROUTERS.ADMIN.LOGIN} replace={false} />
+      ),
+    },
+    {
+      path: ROUTERS.ADMIN.EDITPRODUCT,
+      component: isLoggedIn ? (
+        <EditProductPage />
       ) : (
         <Navigate to={ROUTERS.ADMIN.LOGIN} replace={false} />
       ),
@@ -65,6 +76,30 @@ const renderAdminRouter = () => {
       path: ROUTERS.ADMIN.ADDPRODUCT,
       component: isLoggedIn ? (
         <AddProductPage />
+      ) : (
+        <Navigate to={ROUTERS.ADMIN.LOGIN} replace={false} />
+      ),
+    },
+    {
+      path: ROUTERS.ADMIN.ORDERS,
+      component: isLoggedIn ? (
+        <OrdersAdPage />
+      ) : (
+        <Navigate to={ROUTERS.ADMIN.LOGIN} replace={false} />
+      ),
+    },
+    {
+      path: ROUTERS.ADMIN.ORDERSDETAIL,
+      component: isLoggedIn ? (
+        <OrderDetail />
+      ) : (
+        <Navigate to={ROUTERS.ADMIN.LOGIN} replace={false} />
+      ),
+    },
+    {
+      path: ROUTERS.ADMIN.ADDCATEGORY,
+      component: isLoggedIn ? (
+        <AddCategoriesPage />
       ) : (
         <Navigate to={ROUTERS.ADMIN.LOGIN} replace={false} />
       ),

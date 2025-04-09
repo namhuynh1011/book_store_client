@@ -1,0 +1,81 @@
+@use "sass:map";
+@import "style/pages/all";
+
+
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.order-info {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  color: #444;
+
+  p {
+    margin: 8px 0;
+
+    strong {
+      color: #222;
+    }
+  }
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.order-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+
+  thead {
+    background-color: #f1f1f1;
+
+    th {
+      padding: 12px;
+      border-bottom: 2px solid #ddd;
+      text-align: left;
+      color: #555;
+      font-weight: 600;
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: #fafafa;
+      }
+
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #eee;
+        color: #444;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h2, h3 {
+    font-size: 20px;
+  }
+
+  .order-details-table {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,70 @@
+@use "sass:map";
+@import "style/pages/all";
+
+.category-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+
+  h2 {
+    margin-bottom: 16px;
+    color: #333;
+  }
+
+  .category-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 32px;
+
+    li {
+      background: #f8f8f8;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .delete-btn {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:hover {
+          background-color: #c0392b;
+        }
+      }
+    }
+  }
+
+  .form-add-category {
+    input {
+      padding: 10px;
+      width: calc(100% - 100px);
+      margin-right: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+@use "sass:map";
+@import "style/pages/all";
+
+.edit_product {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: map.get($theme-colors, "main");
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: map.get($theme-colors, "main");
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .preview-image {
+        max-width: 150px;
+        max-height: 150px;
+        object-fit: cover;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+      }
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 20px;
+    
+      button {
+        flex: 1;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s ease;
+    
+        &:hover {
+          transform: translateY(-2px);
+        }
+    
+        &.save-btn {
+          background-color: map.get($theme-colors, "main");
+          color: white;
+    
+          &:hover {
+            background-color: darken(map.get($theme-colors, "main"), 10%);
+          }
+        }
+    
+        &.cancel-btn {
+          background-color: #ccc;
+          color: #333;
+    
+          &:hover {
+            background-color: #999;
+          }
+        }
+      }
+    }
+    
+  }
+}

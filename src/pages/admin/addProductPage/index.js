@@ -116,7 +116,7 @@ const AddProductPage = () => {
           onChange={handleChange}
         />
         <select
-          name="category_id"
+          name="category_id" className="category_id"
           onChange={handleChange}
           value={form.category_id}
           required

@@ -32,8 +32,8 @@
 
                 &:hover {
                     svg {
-                        background: #7fad39;
-                        border-color: #7fad39;
+                        background: map.get($theme-colors, "main");
+                        border-color: map.get($theme-colors, "main");
                         color: #ffffff;
                         transform: rotate(360deg) !important;
                     }

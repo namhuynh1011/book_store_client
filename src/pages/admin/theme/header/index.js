@@ -5,7 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTERS } from "utils/router";
 import "./style.scss";
 import Cookies from "js-cookie";
-
+import { IoBagAddSharp } from "react-icons/io5";
+import { FaParachuteBox } from "react-icons/fa";
 const HeaderAd = ({ children, ...props }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,9 +19,21 @@ const HeaderAd = ({ children, ...props }) => {
       icon: <AiOutlineShoppingCart />,
     },
     {
+      path: ROUTERS.ADMIN.LISTPRODUCTS,
+      onClick: () => navigate(ROUTERS.ADMIN.LISTPRODUCTS),
+      label: "Danh Sách Sản Phẩm",
+      icon: <FaParachuteBox />,
+    },
+    {
       path: ROUTERS.ADMIN.ADDPRODUCT,
       onClick: () => navigate(ROUTERS.ADMIN.ADDPRODUCT),
       label: "Thêm sản phẩm",
+      icon: <IoBagAddSharp />,
+    },
+    {
+      path: ROUTERS.ADMIN.ADDCATEGORY,
+      onClick: () => navigate(ROUTERS.ADMIN.ADDCATEGORY),
+      label: "Thêm Thể Loại",
       icon: <IoIosAddCircleOutline />,
     },
     {

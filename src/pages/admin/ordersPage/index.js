@@ -3,6 +3,8 @@ import { getOrdersAdAPI, putStatusOrdersAdAPI } from "api/ordersAdPage";
 import { useEffect, useState } from "react";
 import { formatter } from "utils/formater";
 import "./style.scss";
+import { useNavigate } from "react-router-dom";
+import { ROUTERS } from "utils/router";
 
 const STATUS = {
   ORDERED: {
@@ -28,6 +30,10 @@ const STATUS = {
 };
 
 const OrdersAdPage = () => {
+  const navigate = useNavigate();
+  const handleOpenDetail = (id) => {
+    navigate(ROUTERS.ADMIN.ORDERSDETAIL.replace(":id", id));
+  };
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [orders, setOrders] = useState([]);
   const [params, setParams] = useState({
@@ -121,6 +127,7 @@ const OrdersAdPage = () => {
                     <th>Khách hàng</th>
                     <th>Ngày đặt</th>
                     <th>Trạng thái</th>
+                    <th>Chi Tiết Đơn</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -128,7 +135,7 @@ const OrdersAdPage = () => {
                     <tr key={order.id}>
                       <td>
                         <div className="orders__product">
-                          <span>{order.id}</span>
+                          <span className="orders__link">{order.id}</span>
                         </div>
                       </td>
                       <td>
@@ -169,6 +176,14 @@ const OrdersAdPage = () => {
                             </div>
                           )}
                         </div>
+                      </td>
+                      <td>
+                        <button
+                          className="orders__detail-btn"
+                          onClick={() => handleOpenDetail(order.id)}
+                        >
+                          Xem chi tiết
+                        </button>
                       </td>
                     </tr>
                   ))}
