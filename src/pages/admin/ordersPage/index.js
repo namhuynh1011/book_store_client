@@ -34,12 +34,14 @@ const OrdersAdPage = () => {
   const handleOpenDetail = (id) => {
     navigate(ROUTERS.ADMIN.ORDERSDETAIL.replace(":id", id));
   };
+
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [orders, setOrders] = useState([]);
   const [params, setParams] = useState({
     page: 1,
     limit: 10,
   });
+
   const { mutate: getOrdersAd, isLoading } = useMutation({
     mutationFn: () => getOrdersAdAPI(params),
     onSuccess: ({ data }) => {
@@ -111,6 +113,15 @@ const OrdersAdPage = () => {
     });
     setActiveDropdown(null);
   };
+
+  // Tính tổng tiền tất cả đơn hàng
+  const totalAmount = orders?.data?.reduce((total, order) => {
+    const orderTotal = order.details.reduce(
+      (acc, item) => acc + Number(item.quantity * item.product.price),
+      0
+    );
+    return total + orderTotal;
+  }, 0);
 
   return (
     <div className="container">
@@ -189,6 +200,14 @@ const OrdersAdPage = () => {
                   ))}
                 </tbody>
               </table>
+
+              {/* Tổng tiền các đơn hàng */}
+              <div className="orders__summary">
+                <h4>
+                  Tổng tiền tất cả đơn hàng:{" "}
+                  {formatter(totalAmount)}
+                </h4>
+              </div>
             </div>
 
             <div className="orders__footer">
